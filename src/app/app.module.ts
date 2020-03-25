@@ -10,12 +10,24 @@ import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { SignOutComponent } from './components/auth/sign-out/sign-out.component';
+import { AttendButtonComponent } from './components/attendance/attend-button/attend-button.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { LeaveButtonComponent } from './components/attendance/leave-button/leave-button.component';
+import {MatButtonModule} from '@angular/material/button';
+import { ComeBackButtonComponent } from './components/attendance/come-back-button/come-back-button.component';
+import { TakeBreakButtonComponent } from './components/attendance/take-break-button/take-break-button.component';
+import { StaffTopComponent } from './components/staff-top/staff-top.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
-    SignOutComponent
+    SignOutComponent,
+    AttendButtonComponent,
+    LeaveButtonComponent,
+    ComeBackButtonComponent,
+    TakeBreakButtonComponent,
+    StaffTopComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +35,9 @@ import { SignOutComponent } from './components/auth/sign-out/sign-out.component'
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     BrowserAnimationsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

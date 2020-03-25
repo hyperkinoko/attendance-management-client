@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Observable} from 'rxjs';
 import {AuthService} from './services/auth.service';
 import * as firebase from 'firebase';
+import {AttendanceService} from './services/attendance.service';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +11,4 @@ import * as firebase from 'firebase';
 })
 export class AppComponent {
   title = 'attendance-management-client';
-  
-  user$: Observable<firebase.User>;
-  
-  constructor(
-    private authService: AuthService
-  ) {
-    this.user$ = authService.user;
-  }
 }
