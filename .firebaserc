@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "remore-e41bd": {
+      "hosting": {
+        "attendance-management-client": [
+          "remore-e41bd"
+        ]
+      }
+    }
+  }
+}

@@ -121,8 +121,13 @@
               "devServerTarget": "attendance-management-client:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "attendance-management-client"
 }
