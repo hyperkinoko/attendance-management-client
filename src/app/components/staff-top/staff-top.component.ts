@@ -10,6 +10,7 @@ import {AttendanceService} from '../../services/attendance.service';
   styleUrls: ['./staff-top.component.scss']
 })
 export class StaffTopComponent implements OnInit {
+  memo: string;
   
   user$: Observable<firebase.User>;
   status$: Observable<string>;

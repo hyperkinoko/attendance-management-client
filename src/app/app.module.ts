@@ -17,6 +17,13 @@ import {MatButtonModule} from '@angular/material/button';
 import { ComeBackButtonComponent } from './components/attendance/come-back-button/come-back-button.component';
 import { TakeBreakButtonComponent } from './components/attendance/take-break-button/take-break-button.component';
 import { StaffTopComponent } from './components/staff-top/staff-top.component';
+import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule} from '@angular/forms';
+import {MarkdownModule} from 'ngx-markdown';
+import {FlexModule} from '@angular/flex-layout';
+import { ManagerTopComponent } from './components/manager-top/manager-top.component';
 
 @NgModule({
   declarations: [
@@ -27,19 +34,26 @@ import { StaffTopComponent } from './components/staff-top/staff-top.component';
     LeaveButtonComponent,
     ComeBackButtonComponent,
     TakeBreakButtonComponent,
-    StaffTopComponent
+    StaffTopComponent,
+    ManagerTopComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MarkdownModule.forRoot(),
+    FlexModule
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

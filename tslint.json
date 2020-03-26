@@ -6,6 +6,7 @@
         "allow-leading-underscore"
       ]
     },
+    "object-literal-shorthand": false,
     "no-trailing-whitespace": false,
     "array-type": false,
     "arrow-parens": false,

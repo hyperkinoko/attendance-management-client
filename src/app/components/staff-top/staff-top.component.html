@@ -12,10 +12,30 @@
 <ng-container *ngIf="(user$ | async); else pleaseSignIn">
   <ng-container [ngSwitch]="(status$ | async)">
     <ng-container *ngSwitchCase="'LEAVING'">
-      <app-attend-button></app-attend-button>
+      <h3>業務予定</h3>
+      <div fxLayout="row wrap">
+        <textarea class="md-input"
+                  matInput
+                  placeholder="きょう なにする？"
+                  [(ngModel)]="memo"
+                  rows="10">
+        </textarea>
+        <markdown [data]="memo"></markdown>
+      </div>
+      <app-attend-button [memo]="memo"></app-attend-button>
     </ng-container>
     <ng-container *ngSwitchCase="'ATTENDING'">
-      <app-leave-button></app-leave-button>
+      <h3>業務報告</h3>
+      <div fxLayout="row wrap">
+        <textarea class="md-input"
+                  matInput
+                  placeholder="きょう なにした？"
+                  [(ngModel)]="memo"
+                  rows="10">
+        </textarea>
+        <markdown [data]="memo"></markdown>
+      </div>
+      <app-leave-button [memo]="memo"></app-leave-button>
       <app-take-break-button></app-take-break-button>
     </ng-container>
     <ng-container *ngSwitchCase="'ONBREAK'">

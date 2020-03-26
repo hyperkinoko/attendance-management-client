@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AttendanceService} from '../../../services/attendance.service';
 
 @Component({
@@ -7,6 +7,7 @@ import {AttendanceService} from '../../../services/attendance.service';
   styleUrls: ['./leave-button.component.scss']
 })
 export class LeaveButtonComponent implements OnInit {
+  @Input() memo = '';
 
   constructor(
     private attendanceService: AttendanceService
@@ -16,7 +17,7 @@ export class LeaveButtonComponent implements OnInit {
   }
   
   leave() {
-    this.attendanceService.leave();
+    this.attendanceService.leave(this.memo);
   }
 
 }

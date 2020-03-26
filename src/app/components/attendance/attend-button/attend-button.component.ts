@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AttendanceService} from '../../../services/attendance.service';
 
 @Component({
@@ -7,6 +7,8 @@ import {AttendanceService} from '../../../services/attendance.service';
   styleUrls: ['./attend-button.component.scss']
 })
 export class AttendButtonComponent implements OnInit {
+  @Input() memo = '';
+  
 
   constructor(
     private attendanceService: AttendanceService
@@ -16,6 +18,6 @@ export class AttendButtonComponent implements OnInit {
   }
 
   attend() {
-    this.attendanceService.attend();
+    this.attendanceService.attend(this.memo);
   }
 }
