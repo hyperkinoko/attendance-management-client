@@ -17,7 +17,7 @@ export interface Attendance {
   providedIn: 'root'
 })
 export class AttendanceService {
-  private _status$ = new BehaviorSubject<string>('NOTSIGNINED');
+  private _status$ = new BehaviorSubject<string>('LEAVING');
 
   constructor(
     private auth: AuthService,
