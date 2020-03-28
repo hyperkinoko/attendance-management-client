@@ -8,8 +8,6 @@ import { JwtHelperService } from "@auth0/angular-jwt";
   providedIn: 'root'
 })
 export class AuthService {
-  // private _user: Observable<firebase.User> = this.angularfireAuth.authState;
-
   endpointName = '';
   clientId     = '';
   redirectUri  = '';
@@ -18,6 +16,8 @@ export class AuthService {
   signedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.signedIn);
   idToken = '';
   idToken$: BehaviorSubject<string> = new BehaviorSubject<string>(this.idToken);
+  email = '';
+  email$: BehaviorSubject<string> = new BehaviorSubject<string>(this.email);
 
   constructor(private router: Router) {
     this.endpointName = environment.endpointName;
@@ -57,6 +57,15 @@ export class AuthService {
         this.idToken$.next(this.idToken);
         this.signedIn = true;
         this.signedIn$.next(this.signedIn);
+
+        const helper = new JwtHelperService();
+        const decoded = helper.decodeToken(this.idToken);
+        window.console.log(decoded);
+        this.email = decoded.email;
+        window.console.log(this.email);
+        const username = decoded['cognito:username'];
+        window.console.log(username);
+
         this.router.navigate(['/']);
       } else {
         window.console.log('no id_token');
@@ -79,9 +88,6 @@ export class AuthService {
   }
 
   get user(): string {
-    const helper = new JwtHelperService();
-    const decoded = helper.decodeToken(this.idToken);
-    console.log(decoded);
-    return 'test@example.com'; // return this._user;
+    return this.email; // return this._user;
   }
 }

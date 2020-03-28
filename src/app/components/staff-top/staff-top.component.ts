@@ -18,7 +18,7 @@ export class StaffTopComponent implements OnInit {
     private authService: AuthService,
     private attendaceService: AttendanceService
   ) {
- //   this.user$ = this.authService.user;
+    this.user$ = this.authService.user;
     this.status$ = this.attendaceService.status;
   }
 

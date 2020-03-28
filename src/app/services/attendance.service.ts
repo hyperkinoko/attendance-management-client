@@ -19,6 +19,7 @@ export class AttendanceService {
   constructor(
     private auth: AuthService
   ) {
+    const idToken = this.auth.idToken;
     /*
     this.auth.user.pipe(take(1)).subscribe((u: firebase.User) => {
       if (u) {
