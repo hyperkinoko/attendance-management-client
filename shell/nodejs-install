@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
+cd shell
 curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
 sudo bash n lts
