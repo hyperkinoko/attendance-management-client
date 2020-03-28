@@ -1,7 +1,7 @@
 <mat-toolbar>
   <mat-toolbar-row>
-    <ng-container *ngIf="(user$ | async) as user; else notSignIn">
-      <span>{{user.displayName}}</span>
+    <ng-container *ngIf="(user$) as user; else notSignIn">
+      <span>{{user}}</span>
       <span><app-sign-out></app-sign-out></span>
     </ng-container>
     <ng-template #notSignIn>
@@ -9,7 +9,7 @@
     </ng-template>
   </mat-toolbar-row>
 </mat-toolbar>
-<ng-container *ngIf="(user$ | async); else pleaseSignIn">
+<ng-container *ngIf="(user$); else pleaseSignIn">
   <ng-container [ngSwitch]="(status$ | async)">
     <ng-container *ngSwitchCase="'LEAVING'">
       <h3>業務予定</h3>

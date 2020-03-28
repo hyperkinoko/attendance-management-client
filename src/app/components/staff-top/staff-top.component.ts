@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
-import * as firebase from 'firebase/app';
 import {AuthService} from '../../services/auth.service';
 import {AttendanceService} from '../../services/attendance.service';
 
@@ -11,15 +10,15 @@ import {AttendanceService} from '../../services/attendance.service';
 })
 export class StaffTopComponent implements OnInit {
   memo: string;
-  
-  user$: Observable<firebase.User>;
+
+  user$: string;
   status$: Observable<string>;
-  
+
   constructor(
     private authService: AuthService,
     private attendaceService: AttendanceService
   ) {
-    this.user$ = this.authService.user;
+ //   this.user$ = this.authService.user;
     this.status$ = this.attendaceService.status;
   }
 

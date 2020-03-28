@@ -14,9 +14,9 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   signIn() {
-    this.auth.signInWithGoogle();
+    this.auth.signIn();
   }
 
 }

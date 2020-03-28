@@ -4,14 +4,9 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: '<your-key>',
-    authDomain: '<your-project-authdomain>',
-    databaseURL: '<your-database-URL>',
-    projectId: '<your-project-id>',
-    storageBucket: '<your-storage-bucket>',
-    messagingSenderId: '<your-messaging-sender-id>'
-  }
+  endpointName: 'auth.example.com', // AWS Cognito Endpoint
+  clientId: '<AWS Cognito App Client Id>', // AWS Cognito App Client Id
+  redirectUri: '<SPA URI>'
 };
 
 /*

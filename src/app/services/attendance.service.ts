@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
-import * as firebase from 'firebase/app';
 import {AuthService} from './auth.service';
 import { take } from 'rxjs/operators';
 import {BehaviorSubject} from 'rxjs';
-import {AngularFirestore} from '@angular/fire/firestore';
-import 'firebase/firestore';
 
 export interface Attendance {
   uid: string;
@@ -20,9 +17,9 @@ export class AttendanceService {
   private _status$ = new BehaviorSubject<string>('LEAVING');
 
   constructor(
-    private auth: AuthService,
-    private firestore: AngularFirestore
+    private auth: AuthService
   ) {
+    /*
     this.auth.user.pipe(take(1)).subscribe((u: firebase.User) => {
       if (u) {
         const status = 'LEAVING';
@@ -31,9 +28,11 @@ export class AttendanceService {
         console.log('サインインして');
       }
     });
+    */
   }
-  
+
   attend(memo: string) {
+    /*
     const date = new Date();
     this.auth.user.pipe(take(1)).subscribe((u: firebase.User) => {
       if (u) {
@@ -50,9 +49,11 @@ export class AttendanceService {
         console.log('サインインして');
       }
     });
+    */
   }
-  
+
   leave(memo: string) {
+    /*
     const date = new Date();
     this.auth.user.pipe(take(1)).subscribe((u: firebase.User) => {
       if (u) {
@@ -69,9 +70,11 @@ export class AttendanceService {
         console.log('サインインして');
       }
     });
+    */
   }
-  
+
   comeBack() {
+    /*
     const date = new Date();
     this.auth.user.pipe(take(1)).subscribe((u: firebase.User) => {
       if (u) {
@@ -87,9 +90,11 @@ export class AttendanceService {
         console.log('サインインして');
       }
     });
+    */
   }
-  
+
   takeBreak() {
+    /*
     const date = new Date();
     this.auth.user.pipe(take(1)).subscribe((u: firebase.User) => {
       if (u) {
@@ -105,6 +110,7 @@ export class AttendanceService {
         console.log('サインインして');
       }
     });
+    */
   }
   get status() {
     return this._status$.asObservable();
