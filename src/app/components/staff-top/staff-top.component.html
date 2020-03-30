@@ -1,46 +1,35 @@
-<mat-toolbar>
-  <mat-toolbar-row>
-    <ng-container *ngIf="(user$ | async) as user; else notSignIn">
-      <span>{{user.displayName}}</span>
-      <span><app-sign-out></app-sign-out></span>
-    </ng-container>
-    <ng-template #notSignIn>
-      <app-sign-in></app-sign-in>
-    </ng-template>
-  </mat-toolbar-row>
-</mat-toolbar>
-<ng-container *ngIf="(user$ | async); else pleaseSignIn">
-  <ng-container [ngSwitch]="(status$ | async)">
-    <ng-container *ngSwitchCase="'LEAVING'">
-      <h3>業務予定</h3>
-      <div fxLayout="row wrap">
-        <textarea class="md-input"
-                  matInput
-                  placeholder="きょう なにする？"
-                  [(ngModel)]="memo"
-                  rows="10">
-        </textarea>
-        <markdown [data]="memo"></markdown>
-      </div>
-      <app-attend-button [memo]="memo"></app-attend-button>
-    </ng-container>
-    <ng-container *ngSwitchCase="'ATTENDING'">
-      <h3>業務報告</h3>
-      <div fxLayout="row wrap">
-        <textarea class="md-input"
-                  matInput
-                  placeholder="きょう なにした？"
-                  [(ngModel)]="memo"
-                  rows="10">
-        </textarea>
-        <markdown [data]="memo"></markdown>
-      </div>
-      <app-leave-button [memo]="memo"></app-leave-button>
-      <app-take-break-button></app-take-break-button>
-    </ng-container>
-    <ng-container *ngSwitchCase="'ONBREAK'">
-      <app-come-back-button></app-come-back-button>
+  <ng-container *ngIf="(user$ | async); else pleaseSignIn">
+    <ng-container [ngSwitch]="(status$ | async)">
+      <ng-container *ngSwitchCase="'LEAVING'">
+        <h3>業務予定</h3>
+        <div fxLayout="row wrap">
+          <textarea class="md-input"
+                    matInput
+                    placeholder="きょう なにする？"
+                    [(ngModel)]="memo"
+                    rows="10">
+          </textarea>
+          <markdown [data]="memo"></markdown>
+        </div>
+        <app-attend-button [memo]="memo"></app-attend-button>
+      </ng-container>
+      <ng-container *ngSwitchCase="'ATTENDING'">
+        <h3>業務報告</h3>
+        <div fxLayout="row wrap">
+          <textarea class="md-input"
+                    matInput
+                    placeholder="きょう なにした？"
+                    [(ngModel)]="memo"
+                    rows="10">
+          </textarea>
+          <markdown [data]="memo"></markdown>
+        </div>
+        <app-leave-button [memo]="memo"></app-leave-button>
+        <app-take-break-button></app-take-break-button>
+      </ng-container>
+      <ng-container *ngSwitchCase="'ONBREAK'">
+        <app-come-back-button></app-come-back-button>
+      </ng-container>
     </ng-container>
   </ng-container>
-</ng-container>
-<ng-template #pleaseSignIn><p>サインインしてね<app-sign-in></app-sign-in></p></ng-template>
+  <ng-template #pleaseSignIn><p>サインインしてね<app-sign-in></app-sign-in></p></ng-template>

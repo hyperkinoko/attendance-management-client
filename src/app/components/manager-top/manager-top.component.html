@@ -1,3 +1,7 @@
+<mat-label>スタッフ選択</mat-label>
+<mat-select [(ngModel)]="selectedUid">
+  <mat-option *ngfor="let user of (allUser$ | async)" [value]="user.uid">{{user.displayName}}</mat-option>
+</mat-select>
 <ng-container *ngIf="(data$ | async) as data">
   <table>
     <ng-container *ngFor="let attendance of data">

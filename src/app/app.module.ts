@@ -24,6 +24,8 @@ import {FormsModule} from '@angular/forms';
 import {MarkdownModule} from 'ngx-markdown';
 import {FlexModule} from '@angular/flex-layout';
 import { ManagerTopComponent } from './components/manager-top/manager-top.component';
+import { HeaderComponent } from './components/header/header.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { ManagerTopComponent } from './components/manager-top/manager-top.compon
     ComeBackButtonComponent,
     TakeBreakButtonComponent,
     StaffTopComponent,
-    ManagerTopComponent
+    ManagerTopComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { ManagerTopComponent } from './components/manager-top/manager-top.compon
     MatInputModule,
     FormsModule,
     MarkdownModule.forRoot(),
-    FlexModule
+    FlexModule,
+    MatSelectModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

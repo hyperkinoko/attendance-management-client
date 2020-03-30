@@ -1,0 +1,12 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <ng-container *ngIf="(user$ | async) as user; else notSignIn">
+      <span><a routerLink="/manager/">管理者ページ</a></span>
+      <span>{{user.displayName}}</span>
+      <span><app-sign-out></app-sign-out></span>
+    </ng-container>
+    <ng-template #notSignIn>
+      <app-sign-in></app-sign-in>
+    </ng-template>
+  </mat-toolbar-row>
+</mat-toolbar>

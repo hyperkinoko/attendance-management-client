@@ -6,7 +6,7 @@ import {ManagerTopComponent} from './components/manager-top/manager-top.componen
 
 const routes: Routes = [
   {path: '', component: StaffTopComponent},
-  {path: 'manage', component: ManagerTopComponent}
+  {path: 'manager', component: ManagerTopComponent}
 ];
 
 @NgModule({
